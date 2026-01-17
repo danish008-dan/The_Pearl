@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged Out | The Pearl</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page-transition"></div>
+
+<section class="logout-section">
+    <div class="logout-box">
+        <h2>You’ve been logged out</h2>
+        <p>Thank you for visiting <strong>The Pearl</strong>.</p>
+
+        <div class="logout-actions">
+            <a href="/" class="btn-primary">Go to Home</a>
+            <button class="btn-secondary" onclick="goToLogin()">Login Again</button>
+        </div>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

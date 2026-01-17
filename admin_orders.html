@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Orders | The Pearl</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<h1 style="text-align:center">All Orders</h1>
+
+<table style="width:80%;margin:auto;color:white">
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Total</th>
+    </tr>
+
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.username }}</td>
+        <td>₹{{ order.total_amount }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

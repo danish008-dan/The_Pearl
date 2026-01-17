@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | The Pearl Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<div class="page-transition"></div>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+    <h2>The Pearl</h2>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('menu') }}">Menu</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ================= ABOUT SECTION ================= -->
+<section class="menu-section">
+    <h1>About The Pearl</h1>
+
+    <div style="max-width: 900px; margin: auto; text-align: center; line-height: 1.8; font-size: 18px; color: #ddd;">
+
+        <p>
+            Welcome to <strong style="color: gold;">The Pearl Restaurant</strong>,
+            where taste meets tradition and every dish tells a story.
+        </p>
+
+        <br>
+
+        <p>
+            At The Pearl, we believe food is not just a meal — it is an experience.
+            Our chefs carefully craft each dish using premium ingredients, authentic
+            spices, and time-honored recipes to deliver unforgettable flavors.
+        </p>
+
+        <br>
+
+        <p>
+            From rich <strong>Non-Vegetarian delicacies</strong> to mouth-watering
+            <strong>Fast Food</strong> and indulgent <strong>Desserts</strong>,
+            our menu is designed to satisfy every craving.
+        </p>
+
+        <br>
+
+        <p>
+            Whether you are dining with family, celebrating special moments,
+            or simply enjoying great food, The Pearl promises a warm ambience,
+            exceptional service, and premium quality.
+        </p>
+
+        <br>
+
+        <p style="color: gold; font-size: 20px;">
+             Taste the Royalty. Experience The Pearl.
+        </p>
+
+    </div>
+</section>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

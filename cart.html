@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart | The Pearl</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="page-transition"></div>
+
+<nav>
+    <h2>The Pearl</h2>
+    <ul>
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/menu" class="nav-btn">Menu</a>
+        <a href="/orders" class="nav-btn">My Orders</a>
+
+
+    </ul>
+</nav>
+
+<section class="cart-section">
+    <h1>Your Cart</h1>
+
+    <div class="cart-box">
+        <div id="cartItems"></div>
+
+        <div class="cart-summary">
+            <h3>Total: ₹<span id="cartTotal">0</span></h3>
+
+            <button onclick="confirmOrder()">Confirm Order</button>
+            <button onclick="clearCart()">Clear Cart</button>
+
+
+        </div>
+
+        <!-- EMPTY CART STATE -->
+        <div id="emptyCart" class="empty-cart">
+               <h2>Your cart is empty</h2>
+               <p>Add some delicious items from our menu</p>
+               <a href="/menu" class="btn-primary">Browse Menu</a>
+        </div>
+
+
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+    loadCart();
+</script>
+
+</body>
+</html>

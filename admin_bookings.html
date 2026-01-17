@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin | Bookings</title>
+    <style>
+        body { background:#111; color:white; font-family:Arial; padding:40px; }
+        table { width:100%; border-collapse:collapse; margin-top:20px; }
+        th, td { border:1px solid #333; padding:10px; text-align:center; }
+        th { background:#222; color:gold; }
+        a { color:gold; text-decoration:none; }
+    </style>
+</head>
+<body>
+
+<h1>📋 Bookings</h1>
+<a href="/dashboard">← Back</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Guests</th>
+    </tr>
+
+    {% for b in bookings %}
+    <tr>
+        <td>{{ b.id }}</td>
+        <td>{{ b.name }}</td>
+        <td>{{ b.phone }}</td>
+        <td>{{ b.booking_date }}</td>
+        <td>{{ b.booking_time }}</td>
+        <td>{{ b.guests }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

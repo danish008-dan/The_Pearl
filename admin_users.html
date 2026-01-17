@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin | Users</title>
+    <style>
+        body { background:#111; color:white; font-family:Arial; padding:40px; }
+        table { width:50%; border-collapse:collapse; margin-top:20px; }
+        th, td { border:1px solid #333; padding:10px; text-align:center; }
+        th { background:#222; color:gold; }
+        a { color:gold; text-decoration:none; }
+    </style>
+</head>
+<body>
+
+<h1>👥 Users</h1>
+<a href="/dashboard">← Back</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Role</th>
+    </tr>
+
+    {% for u in users %}
+    <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.role }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

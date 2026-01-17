@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Pearl Restaurant</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page-transition"></div>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+    <h2>The Pearl</h2>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('menu') }}">Menu</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+        {% if session.user_id %}
+            {% if session.role == "admin" %}
+                <li><a href="/dashboard">Admin Dashboard</a></li>
+            {% endif %}
+            <li><a href="/logout">Logout</a></li>
+        {% else %}
+            <li><button class="nav-btn" onclick="openLogin()">Login</button></li>
+            <li><button class="nav-btn outline" onclick="openRegister()">Register</button></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <h2>Welcome to The Pearl</h2>
+    <p>Fine Dining & Delicious Food</p>
+    <button onclick="openBooking()">Book a Table</button>
+</section>
+
+<!-- ================= BOOKING MODAL ================= -->
+<div class="booking-modal" id="bookingModal">
+    <div class="booking-box">
+        <h2>Book a Table</h2>
+
+        <form id="bookingForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <input type="number" id="guests" placeholder="Guests" required>
+
+            <button type="submit">
+    Confirm Booking
+</button>
+
+        </form>
+
+        <span onclick="closeBooking()">Cancel</span>
+    </div>
+</div>
+
+<!-- ================= LOGIN MODAL ================= -->
+<div class="auth-modal" id="loginModal">
+    <div class="auth-box">
+        <h2>Login</h2>
+
+        <input id="loginUsername" placeholder="Username">
+        <input id="loginPassword" type="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+        <p class="auth-link" onclick="openRegister()">New here? Register</p>
+        <span onclick="closeLogin()">Cancel</span>
+    </div>
+</div>
+
+<!-- ================= REGISTER MODAL ================= -->
+<div class="auth-modal" id="registerModal">
+    <div class="auth-box">
+        <h2>Register</h2>
+
+        <input id="regUsername" placeholder="Username">
+        <input id="regPassword" type="password" placeholder="Password">
+
+        <button onclick="register()">Create Account</button>
+        <p class="auth-link" onclick="openLogin()">Already have an account?</p>
+        <span onclick="closeRegister()">Cancel</span>
+    </div>
+</div>
+
+<!-- ================= JS ================= -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders | The Pearl</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>The Pearl</h2>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/menu">Menu</a></li>
+    </ul>
+</nav>
+
+<section class="cart-section">
+    <h1>My Orders</h1>
+
+    {% if orders %}
+        {% for order in orders %}
+            <div class="cart-box" style="margin-bottom:20px">
+                <h3>Order #{{ order.id }}</h3>
+                <p>Total: ₹{{ order.total_amount }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No orders yet</p>
+    {% endif %}
+</section>
+
+</body>
+</html>

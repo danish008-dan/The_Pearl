@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | The Pearl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            padding: 40px;
+        }
+        h1 {
+            color: gold;
+        }
+        .box {
+            background: #1c1c1c;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .box a {
+            display: block;
+            margin: 12px 0;
+            color: gold;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .box a:hover {
+            color: white;
+        }
+        .logout {
+            margin-top: 30px;
+            display: inline-block;
+            color: gold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, {{ session.username }}</p>
+
+    <div class="box">
+        <a href="/admin/bookings">View Bookings</a>
+        <a href="/admin/menu">Manage Menu</a>
+        <a href="/admin/users">View Users</a>
+    </div>
+
+    <a class="logout" href="/logout">Logout</a>
+
+</body>
+</html>

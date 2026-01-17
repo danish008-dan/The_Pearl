@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin | Menu</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: 'Poppins', Arial, sans-serif;
+            padding: 40px;
+        }
+
+        h1, h2 {
+            color: gold;
+            text-align: center;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            color: gold;
+            text-decoration: none;
+        }
+
+        /* ---------- FORM CONTAINER ---------- */
+        .form-box {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,215,0,0.25);
+            margin-bottom: 50px;
+        }
+
+        /* ROWS */
+        .row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .row.center {
+            justify-content: center;
+        }
+
+        .row.left {
+            justify-content: flex-start;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px 14px;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        button {
+            padding: 12px 30px;
+            background: gold;
+            color: black;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e6c200;
+            transform: scale(1.05);
+        }
+
+        /* ---------- TABLE ---------- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #222;
+            color: gold;
+        }
+
+        img {
+            width: 70px;
+            border-radius: 8px;
+        }
+
+        .delete {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🍽 Manage Menu</h1>
+<a href="/dashboard">← Back to Dashboard</a>
+
+<div class="form-box">
+
+    <div class="row center">
+        <h2>Add New Item</h2>
+    </div>
+
+    <!-- FORM START -->
+    <form method="POST" action="/admin/menu/add">
+
+        <!-- ROW 1: Name + Price -->
+        <div class="row">
+            <input name="name" placeholder="Food Name" required>
+            <input name="price" placeholder="Price" required>
+        </div>
+
+        <!-- ROW 2: Category + Image -->
+        <div class="row">
+            <select name="category" required style="flex:1; padding:12px; background:#000; color:white; border-radius:8px;">
+                <option value="">Select Category</option>
+                <option value="veg">Veg</option>
+                <option value="nonveg">Non-Veg</option>
+                <option value="dessert">Dessert</option>
+                <option value="icecream">Ice Cream</option>
+            </select>
+
+            <input name="image" placeholder="Image URL (e.g pasta.jpg)">
+        </div>
+
+        <!-- ROW 3: Manual / Short Description -->
+        <div class="row">
+            <input name="description" id="descInput" placeholder="Short Description (manual or AI)">
+        </div>
+
+        <!-- ROW 4: AI Short Description -->
+        <div class="row">
+            <input id="aiFoodName" placeholder="Food name for AI (short desc)">
+            <button type="button" onclick="generateShortDesc()">Generate Short Description</button>
+        </div>
+
+        <!-- ROW 6: Submit -->
+        <div class="row left" style="margin-top:25px;">
+            <button type="submit">Add Item</button>
+        </div>
+
+    </form>
+    <!-- FORM END -->
+
+</div>
+
+<!-- ================= MENU TABLE ================= -->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Food</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+
+    {% for m in menu %}
+    <tr>
+        <td>{{ m.id }}</td>
+        <td>{{ m.name }}</td>
+        <td>{{ m.description }}</td>
+        <td>₹{{ m.price }}</td>
+        <td><img src="/static/images/{{ m.image }}"></td>
+        <td>
+            <a class="delete" href="/admin/menu/delete/{{ m.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<script src="/static/js/script.js"></script>
+
+</body>
+</html>

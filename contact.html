@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | The Pearl Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Purpose:
+         Contact page for The Pearl Restaurant
+         Uses existing CSS only (no new styles added)
+         Fully compatible with PyWebView
+    -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<div class="page-transition"></div>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+    <h2>The Pearl</h2>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('menu') }}">Menu</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="menu-section">
+    <h1>Contact Us</h1>
+
+    <!-- CONTACT CONTENT WRAPPER -->
+    <div style="
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+        line-height: 1.8;
+        font-size: 18px;
+        color: #ddd;
+    ">
+
+        <!-- ADDRESS -->
+        <p>
+             <strong style="color: gold;">Address</strong><br>
+            Fatehpur Road, Near State Bank of India,<br>
+            Sikar, Rajasthan
+        </p>
+
+        <br>
+
+        <!-- PHONE -->
+        <p>
+             <strong style="color: gold;">Phone</strong><br>
+            <a href="tel:+917849882458" style="color: #ddd; text-decoration: none;">
+                +91 78498 82458
+            </a>
+        </p>
+
+        <br>
+
+        <!-- WHATSAPP -->
+        <p>
+             <strong style="color: gold;">WhatsApp</strong><br>
+            <a href="https://wa.me/917849882458" target="_blank"
+               style="color: #ddd; text-decoration: none;">
+                Chat with us on WhatsApp at +917849882458
+            </a>
+        </p>
+
+        <br>
+
+        <!-- EMAIL -->
+        <p>
+             <strong style="color: gold;">Email</strong><br>
+            <a href="mailto:danishkhatri885@gmail.com"
+               style="color: #ddd; text-decoration: none;">
+                danishkhatri885@gmail.com
+            </a>
+        </p>
+
+        <br>
+
+        <!-- TIMINGS -->
+        <p>
+             <strong style="color: gold;">Opening Hours</strong><br>
+            10:00 AM – 2:00 Midnight
+        </p>
+
+        <br><br>
+
+        <!-- CTA -->
+        <p style="color: gold; font-size: 20px;">
+            We look forward to serving you
+        </p>
+
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

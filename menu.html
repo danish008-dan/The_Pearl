@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu | The Pearl</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page-transition"></div>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>The Pearl</h2>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('menu') }}" class="active">Menu</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+        <li>
+            <a href="/cart" class="cart-link no-transition">
+    🛒 Cart <span id="cartCount">0</span>
+</a>
+
+        </li>
+    </ul>
+</nav>
+<!-- SEARCH BAR -->
+<div style="margin-top:90px; text-align:center;">
+
+    <input
+        id="searchBox"
+        placeholder="Search anything... e.g. spicy, sweet dessert, light dinner"
+        style="padding:14px 18px;
+               width:60%;
+               border-radius:14px;
+               border:1px solid gold;
+               background:#000;
+               color:white;">
+
+    <button onclick="runSearch()" class="btn-primary">
+        Search
+    </button>
+</div>
+
+<h2 style="text-align:center; margin-top:25px; color:gold;">
+    Search Results
+</h2>
+
+<!-- Search loading spinner -->
+<div id="searchLoader" class="search-loader" style="display:none;">
+    <div class="spinner"></div>
+    <p>Searching dishes for you...</p>
+</div>
+
+
+<!-- ================= SEARCH RESULT CONTAINER ================= -->
+<div id="searchWrapper" class="search-wrapper" style="display:none;">
+
+    <!-- Header with title + close button -->
+    <div class="search-header">
+        <span class="search-close" onclick="closeSearch()">✕</span>
+    </div>
+
+    <!-- Result cards -->
+    <div id="searchResults" class="search-grid"></div>
+
+</div>
+
+
+
+<!-- MENU SECTION -->
+<section class="menu-section">
+    <h1>Our Special Menu</h1>
+
+    <!-- CATEGORY FILTER BUTTONS -->
+    <div class="menu-filter">
+        <button onclick="showCategory('all', this)" class="filter-btn active">All</button>
+        <button onclick="showCategory('veg', this)" class="filter-btn">Veg & Fast Food</button>
+        <button onclick="showCategory('nonveg', this)" class="filter-btn">Non-Veg</button>
+        <button onclick="showCategory('dessert', this)" class="filter-btn">Desserts</button>
+        <button onclick="showCategory('icecream', this)" class="filter-btn">Ice Cream</button>
+    </div>
+
+    <!-- VEG & FAST FOOD -->
+    <div class="menu-category" id="veg">
+        <h2>Veg & Fast Food</h2>
+        <div class="menu-grid" id="vegGrid"></div>
+    </div>
+
+    <!-- NON VEG -->
+    <div class="menu-category" id="nonveg">
+        <h2>Non-Veg</h2>
+        <div class="menu-grid" id="nonvegGrid"></div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div class="menu-category" id="dessert">
+        <h2>Desserts</h2>
+        <div class="menu-grid" id="dessertGrid"></div>
+    </div>
+
+    <!-- ICE CREAM -->
+    <div class="menu-category" id="icecream">
+        <h2>Ice Cream</h2>
+        <div class="menu-grid" id="icecreamGrid"></div>
+    </div>
+
+</section>
+
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<script>
+    // Load menu category-wise
+    loadMenu();
+</script>
+
+</body>
+</html>
